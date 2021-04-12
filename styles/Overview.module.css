@@ -1,0 +1,34 @@
+.emphasisText {
+  display: inline-block;
+  opacity: 0;
+}
+
+.emphasisTextFirst {
+  composes: emphasisText;
+  animation: slideUp 0.5s forwards cubic-bezier(0.16, 1, 0.3, 1) 0.4s,
+    fadeIn 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1) 0.55s;
+}
+
+.emphasisTextSecond {
+  composes: emphasisText;
+  animation: slideUp 0.5s forwards cubic-bezier(0.16, 1, 0.3, 1) 1.4s,
+    fadeIn 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1) 1.55s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     fontFamily: ["Fira Code", "sans-serif"].join(","),
     fontWeight: "500",
+    color: theme.palette.text.primary,
   },
   nav: {
     display: "flex",
@@ -102,7 +103,7 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
     setOpen(to || !open);
   };
   return (
-    <AppBar position="static" ref={ref} color="transparent" {...props}>
+    <AppBar position="static" ref={ref} {...props}>
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           {title ?? "nerve"}
@@ -125,7 +126,6 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
           <Button
             variant="outlined"
             color="secondary"
-            size="big"
             onClick={() => router.push("/")}
             className={classes.buyButton}
           >

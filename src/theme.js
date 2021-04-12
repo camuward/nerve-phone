@@ -28,6 +28,21 @@ const theme = createMuiTheme({
       default: "#303030",
     },
   },
+  typography: {
+    h1: {
+      fontFamily: ["'DM Sans'", "'Roboto'", "sans-serif"].join(",")
+    },
+    h2: {
+      fontFamily: ["'DM Sans'", "'Roboto'", "sans-serif"].join(",")
+    },
+    h3: {
+      fontFamily: ["'DM Sans'", "'Roboto'", "sans-serif"].join(",")
+    },
+    h4: {
+      fontFamily: ["'DM Sans'", "'Roboto'", "sans-serif"].join(",")
+    },
+    
+  }
 });
 
 export default theme;
