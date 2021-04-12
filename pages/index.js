@@ -169,12 +169,12 @@ const LinkCard = forwardRef(
   }
 );
 
-const Home = ({ width, ...props }) => {
+const Home = () => {
   const classes = useStyles();
   const router = useRouter();
 
   return (
-    <Container maxWidth="md" {...props}>
+    <Container maxWidth="md">
       <Navbar title="nerve" page="Overview" className={classes.navbar} />
       <Grid
         container
@@ -194,18 +194,11 @@ const Home = ({ width, ...props }) => {
                 </Box>
               </Grid>
               <Grid item xs={5} sm={6} md={5}>
-                <Grid
-                  container
-                  direction={width === "xs" ? "column-reverse" : "column"}
-                  spacing={4}
-                >
+                <Grid container direction="column">
                   <Grid item>
                     <Typography
                       variant="h4"
                       component="h2"
-                      {...(width === "xs"
-                        ? { className: classes.xsEmphasisText }
-                        : {})}
                     >
                       <span className={styles.emphasisTextFirst}>
                         {"Elegance."}
@@ -274,7 +267,11 @@ const Home = ({ width, ...props }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
-              <Grid item><Typography>Copyright © Synapse, 2033. All rights reserved.</Typography></Grid>
+              <Grid item>
+                <Typography>
+                  Copyright © Synapse, 2033. All rights reserved.
+                </Typography>
+              </Grid>
             </Grid>
           </Paper>
         </Grid>
@@ -283,8 +280,4 @@ const Home = ({ width, ...props }) => {
   );
 };
 
-Home.propTypes = {
-  width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired,
-};
-
-export default withWidth()(Home);
+export default Home;

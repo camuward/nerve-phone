@@ -32,20 +32,20 @@ const useStyles = makeStyles(theme => ({
     gap: theme.spacing(1),
     marginRight: theme.spacing(2),
     "& > *": {
-      color: theme.palette.text.primary
-    }
+      color: theme.palette.text.primary,
+    },
   },
   buyButton: {
     color: theme.palette.primary.main,
     borderColor: theme.palette.primary.main,
     "&:hover": {
       background: theme.palette.primary.main,
-      color: theme.palette.primary.contrastText
-    }
+      color: theme.palette.primary.contrastText,
+    },
   },
   drawerButton: {
     color: "#fff",
-  }
+  },
 }));
 
 const PageDrawer = forwardRef(
@@ -69,12 +69,13 @@ const PageDrawer = forwardRef(
             ["Performance", <SpeedRoundedIcon />, "/"],
             ["Specs", <AssessmentRoundedIcon />, "/"],
             ["Buy Now", <ShoppingCartRoundedIcon />, "/"],
-          ].map(([text, icon, link]) => {
+          ].map(([text, icon, link], i) => {
             return (
               <ListItem
                 button
                 selected={page === text}
                 onClick={page === text ? onClose : () => onSubmit(link)}
+                key={i}
               >
                 <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText primary={text} />
@@ -110,16 +111,32 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
         </Typography>
         <Hidden smDown>
           <Box className={classes.nav}>
-            <Button color="secondary" onClick={() => router.push("/")} size="large">
+            <Button
+              color="secondary"
+              onClick={() => router.push("/")}
+              size="large"
+            >
               Overview
             </Button>
-            <Button color="secondary" onClick={() => router.push("/")} size="large">
+            <Button
+              color="secondary"
+              onClick={() => router.push("/")}
+              size="large"
+            >
               Design
             </Button>
-            <Button color="secondary" onClick={() => router.push("/")} size="large">
+            <Button
+              color="secondary"
+              onClick={() => router.push("/")}
+              size="large"
+            >
               Performance
             </Button>
-            <Button color="secondary" onClick={() => router.push("/")} size="large">
+            <Button
+              color="secondary"
+              onClick={() => router.push("/")}
+              size="large"
+            >
               Specs
             </Button>
           </Box>
