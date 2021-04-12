@@ -120,7 +120,7 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
             </Button>
             <Button
               color="secondary"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/design")}
               size="large"
             >
               Design

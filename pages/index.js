@@ -15,6 +15,7 @@ import withWidth from "@material-ui/core/withWidth";
 
 import Navbar from "../src/Navbar";
 import styles from "../styles/Overview.module.css";
+import { NoSsr } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   flexGrow: {
@@ -196,10 +197,7 @@ const Home = () => {
               <Grid item xs={5} sm={6} md={5}>
                 <Grid container direction="column">
                   <Grid item>
-                    <Typography
-                      variant="h4"
-                      component="h2"
-                    >
+                    <Typography variant="h4" component="h2">
                       <span className={styles.emphasisTextFirst}>
                         {"Elegance."}
                       </span>{" "}
@@ -208,36 +206,40 @@ const Home = () => {
                       </span>
                     </Typography>
                   </Grid>
-                  <Hidden xsDown>
-                    <Grid item>
-                      <Typography variant="body1">
-                        Built from the ground up with a mod&shy;ern,
-                        min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
-                      </Typography>
-                    </Grid>
-                  </Hidden>
+                  <NoSsr>
+                    <Hidden xsDown>
+                      <Grid item>
+                        <Typography variant="body1">
+                          Built from the ground up with a mod&shy;ern,
+                          min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
+                        </Typography>
+                      </Grid>
+                    </Hidden>
+                  </NoSsr>
                 </Grid>
               </Grid>
             </Grid>
           </Paper>
         </Grid>
-        <Hidden smUp>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              <Typography variant="h5" component="span">
-                Built from the ground up with a mod&shy;ern,
-                min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
-              </Typography>
-            </Paper>
-          </Grid>
-        </Hidden>
+        <NoSsr>
+          <Hidden smUp>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Typography variant="h5" component="span">
+                  Built from the ground up with a mod&shy;ern,
+                  min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
+                </Typography>
+              </Paper>
+            </Grid>
+          </Hidden>
+        </NoSsr>
         <Grid item xs={12}>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={6} sm={4} md={3}>
               <LinkCard
                 title="Design"
                 backgroundImage="url('/design-card.jpg')"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/design")}
               />
             </Grid>
 
