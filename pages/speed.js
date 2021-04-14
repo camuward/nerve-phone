@@ -180,14 +180,14 @@ const Speed = () => {
               <LinkCard
                 title="Specs"
                 backgroundImage="url('/specs-card.jpg')"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/specs")}
               />
             </Grid>
             <Grid item xs={6} sm={4} md={3}>
               <LinkCard
                 title="Buy"
                 backgroundColor="linear-gradient(165deg, #29ff94, #05ffa3, #00ffb1, #00ffbe, #00ffca, #00ffd5, #00ffdf, #1cffe8)"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/purchase")}
               />
             </Grid>
           </Grid>
