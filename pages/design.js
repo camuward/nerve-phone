@@ -217,7 +217,7 @@ const Design = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography style={{fontFamily: "'Fira Code', monospace"}}>
+                <Typography style={{ fontFamily: "'Fira Code', monospace" }}>
                   Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>

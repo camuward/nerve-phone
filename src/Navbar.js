@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Hidden from "@material-ui/core/Hidden";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -50,40 +50,74 @@ const useStyles = makeStyles(theme => ({
 
 const PageDrawer = forwardRef(
   ({ open, page, onOpen, onClose, onSubmit, ...props }, ref) => {
-    const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
     return (
-      <SwipeableDrawer
+      <Drawer
         open={open}
         anchor="right"
         onClose={onClose}
         onOpen={onOpen}
-        disableBackdropTransition={!iOS}
-        disableDiscovery={iOS}
         ref={ref}
         {...props}
       >
         <List component="nav">
-          {[
-            ["Overview", <VibrationRoundedIcon />, "/"],
-            ["Design", <WallpaperRoundedIcon />, "/design"],
-            ["Performance", <SpeedRoundedIcon />, "/speed"],
-            ["Specs", <AssessmentRoundedIcon />, "/specs"],
-            ["Purchase", <ShoppingCartRoundedIcon />, "/purchase"],
-          ].map(([text, icon, link], i) => {
-            return (
-              <ListItem
-                button
-                selected={page === text}
-                onClick={page === text ? onClose : () => onSubmit(link)}
-                key={i}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            );
-          })}
+          <ListItem
+            button
+            selected={page === "Overview"}
+            onClick={page === "Overview" ? onClose : () => onSubmit("/")}
+          >
+            <ListItemIcon>
+              <VibrationRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Overview"} />
+          </ListItem>
+          <ListItem
+            button
+            selected={page === "Design"}
+            onClick={page === "Design" ? onClose : () => onSubmit("/design")}
+          >
+            <ListItemIcon>
+              {" "}
+              <WallpaperRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Design"} />
+          </ListItem>
+          <ListItem
+            button
+            selected={page === "Performance"}
+            onClick={
+              page === "Performance" ? onClose : () => onSubmit("/speed")
+            }
+          >
+            <ListItemIcon>
+              <SpeedRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Performance"} />
+          </ListItem>
+          <ListItem
+            button
+            selected={page === "Specs"}
+            onClick={page === "Specs" ? onClose : () => onSubmit("/specs")}
+          >
+            <ListItemIcon>
+              <AssessmentRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Specs"} />
+          </ListItem>
+          <ListItem
+            button
+            selected={page === "Purchase"}
+            onClick={
+              page === "Purchase" ? onClose : () => onSubmit("/purchase")
+            }
+            key={i}
+          >
+            <ListItemIcon>
+              <ShoppingCartRoundedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Purchase"} />
+          </ListItem>
         </List>
-      </SwipeableDrawer>
+      </Drawer>
     );
   }
 );

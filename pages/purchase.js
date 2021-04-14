@@ -48,63 +48,6 @@ const useStyles = makeStyles(theme => ({
     gap: theme.spacing(2),
     marginTop: theme.spacing(2),
   },
-  phoneBody: {
-    position: "absolute",
-    width: 200,
-    height: 200,
-    transform: "translateY(-30%)",
-    backgroundColor: theme.palette.secondary.contrastText,
-    borderBottom: "none",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    padding: 4,
-  },
-  phoneScreen: {
-    position: "relative",
-    zIndex: 0,
-    height: 195,
-    borderBottom: "none",
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    background:
-      "linear-gradient(165deg, #29ff94, #05ffa3, #00ffb1, #00ffbe, #00ffca, #00ffd5, #00ffdf, #1cffe8)",
-  },
-  phoneBody: {
-    position: "absolute",
-    [theme.breakpoints.down("xs")]: {
-      width: 140,
-      height: 140,
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: 200,
-      height: 200,
-    },
-    transform: "translateY(-30%)",
-    backgroundColor: theme.palette.primary.contrastText,
-    borderBottom: "none",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    padding: 2,
-  },
-  phoneScreen: {
-    [theme.breakpoints.down("xs")]: {
-      height: 137,
-    },
-    [theme.breakpoints.up("sm")]: {
-      height: 197,
-    },
-    borderBottom: "none",
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
   toolbar: {
     display: "flex",
     width: "100%",
@@ -118,7 +61,6 @@ const Purchase = () => {
   const [color, setColor] = useState(null);
   const [capacity, setCapacity] = useState(-1);
   const classes = useStyles();
-  const router = useRouter();
 
   return (
     <Container maxWidth="md">
@@ -219,7 +161,7 @@ const Purchase = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography style={{fontFamily: "'Fira Code', monospace"}}>
+                <Typography style={{ fontFamily: "'Fira Code', monospace" }}>
                   Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>

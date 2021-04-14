@@ -95,7 +95,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Speed = () => {
-  const [color, setColor] = useState(true);
   const classes = useStyles();
   const router = useRouter();
 
