@@ -142,8 +142,8 @@ const Home = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography>
-                  Copyright © Synapse, 2033. All rights reserved.
+                <Typography style={{fontFamily: "'Fira Code', monospace"}}>
+                  Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>
             </Grid>

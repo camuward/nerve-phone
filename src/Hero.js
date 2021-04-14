@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       minHeight: 200,
     },
-    zIndex: -3
+    zIndex: -3,
   },
   background: {
     borderRadius: theme.shape.borderRadius,
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     bottom: 0,
-    zIndex: -2
+    zIndex: -2,
   },
   backgroundDim: {
     borderRadius: theme.shape.borderRadius,
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     bottom: 0,
-    zIndex: -1
+    zIndex: -1,
   },
   children: {
     gap: theme.spacing(4),
@@ -58,6 +58,7 @@ const Hero = forwardRef(
     {
       primary,
       secondary,
+      altSecondary,
       children,
       noExpand,
       rtl,
@@ -85,12 +86,12 @@ const Hero = forwardRef(
             }}
           />
         )}
-                {backgroundDim && (
+        {backgroundDim && (
           <span
             className={classes.backgroundDim}
             style={{
               background: "#000",
-              opacity: backgroundDimAmount || 0.4
+              opacity: backgroundDimAmount || 0.4,
             }}
           />
         )}
@@ -134,7 +135,9 @@ const Hero = forwardRef(
           <NoSsr>
             <Hidden smUp>
               <Grid item xs={12}>
-                <Paper className={classes.extension}>{secondary}</Paper>
+                <Paper className={classes.extension}>
+                  {altSecondary || secondary}
+                </Paper>
               </Grid>
             </Hidden>
           </NoSsr>

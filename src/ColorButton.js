@@ -12,7 +12,17 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     zIndex: 0,
     overflow: "hidden",
-    backgroundColor: theme.palette.background.default
+    backgroundColor: theme.palette.background.default,
+    border: `${theme.spacing(0.3)}px solid ${theme.palette.background.default}`
+  },
+  paperSelected: {
+    width: "100%",
+    minHeight: 60,
+    position: "relative",
+    zIndex: 0,
+    overflow: "hidden",
+    backgroundColor: theme.palette.background.default,
+    border: `${theme.spacing(0.3)}px solid #fff`
   },
   button: {
     position: "absolute",
@@ -45,10 +55,10 @@ const Preview = ({ gradient, border, ...props }) => {
 };
 
 const ColorButton = forwardRef(
-  ({ preview, onClick, children, border, ...props }, ref) => {
+  ({ preview, onClick, children, border, selected, ...props }, ref) => {
     const classes = useStyles();
     return (
-      <Paper className={classes.paper} ref={ref} {...props}>
+      <Paper className={selected ? classes.paperSelected : classes.paper} ref={ref} {...props}>
         <ButtonBase onClick={onClick} className={classes.button}>
           <Grid container wrap="nowrap" direction="row" alignItems="center" className={classes.box}>
             <Grid item>

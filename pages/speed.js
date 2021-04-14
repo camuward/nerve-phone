@@ -137,7 +137,12 @@ const Speed = () => {
           primary={
             <Typography variant="h4" component="h2" className={classes.invert}>
               <span
-                style={{ color: "white", backgroundColor: "rgba(0,0,0,0.6)", lineHeight: "1.6em", padding: "0.15em 0" }}
+                style={{
+                  color: "white",
+                  backgroundColor: "rgba(0,0,0,0.6)",
+                  lineHeight: "1.6em",
+                  padding: "0.15em 0",
+                }}
               >
                 Powerful, from silicon to screen.
               </span>
@@ -146,7 +151,11 @@ const Speed = () => {
           secondary={
             <Typography variant="body1" className={classes.invert}>
               <span
-                style={{ color: "white", backgroundColor: "rgba(0,0,0,0.6)", padding: "0.15em 0" }}
+                style={{
+                  color: "white",
+                  backgroundColor: "rgba(0,0,0,0.6)",
+                  padding: "0.15em 0",
+                }}
               >
                 The{" "}
                 <span style={{ fontFamily: "'Fira Code', monospace" }}>
@@ -160,9 +169,22 @@ const Speed = () => {
               </span>
             </Typography>
           }
+          altSecondary={
+            <Typography variant="body1" className={classes.invert}>
+              The{" "}
+              <span style={{ fontFamily: "'Fira Code', monospace" }}>
+                nerve
+              </span>
+              , with its custom RISC-V SoC running on a revolutionary new 2nm
+              transistor node, is capable of reaching 6 GHz sustained loads as
+              long as it stays cool. So we took care of that by including a
+              16-heatpipe cooling system easily capable of dissipating the
+              device's 440 W heat output.
+            </Typography>
+          }
           pxs={4}
           sxs={7}
-          background="url('https://cdn.gamer-network.net/2020/usgamer/Horizon-Zero-Dawn-PC-Press-Screenshot-1-08062020.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/65/horizon-zero-dawn-pc-impressions.jpg') no-repeat 80% 70%"
+          background="url('/horizon-zero-dawn.jpg') no-repeat 80% 70%"
           backgroundDim
           backgroundCover
         ></Hero>
@@ -196,8 +218,8 @@ const Speed = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography>
-                  Copyright © Synapse, 2033. All rights reserved.
+                <Typography style={{ fontFamily: "'Fira Code', monospace" }}>
+                  Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>
             </Grid>

@@ -68,7 +68,7 @@ const PageDrawer = forwardRef(
             ["Design", <WallpaperRoundedIcon />, "/design"],
             ["Performance", <SpeedRoundedIcon />, "/speed"],
             ["Specs", <AssessmentRoundedIcon />, "/specs"],
-            ["Buy Now", <ShoppingCartRoundedIcon />, "/purchase"],
+            ["Purchase", <ShoppingCartRoundedIcon />, "/purchase"],
           ].map(([text, icon, link], i) => {
             return (
               <ListItem

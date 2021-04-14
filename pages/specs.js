@@ -1,19 +1,10 @@
-import { forwardRef, useState } from "react";
 import { useRouter } from "next/router";
-import PropTypes from "prop-types";
 
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import Hidden from "@material-ui/core/Hidden";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import Box from "@material-ui/core/Box";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import Paper from "@material-ui/core/Paper";
-import FlashOnRounded from "@material-ui/icons/FlashOnRounded";
-import NoSsr from "@material-ui/core/NoSsr";
-import withWidth from "@material-ui/core/withWidth";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -23,10 +14,6 @@ import TableRow from "@material-ui/core/TableRow";
 
 import Navbar from "../src/Navbar";
 import LinkCard from "../src/LinkCard";
-import Hero from "../src/Hero";
-import ColorButton from "../src/ColorButton";
-
-import { DarkTheme, LightTheme } from "../src/theme";
 
 const useStyles = makeStyles(theme => ({
   navbar: {
@@ -41,63 +28,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(8),
     flexGrow: 1,
   },
-  phoneBody: {
-    position: "absolute",
-    width: 200,
-    height: 200,
-    transform: "translateY(-30%)",
-    backgroundColor: theme.palette.secondary.contrastText,
-    borderBottom: "none",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    padding: 4,
-  },
-  phoneScreen: {
-    position: "relative",
-    zIndex: 0,
-    height: 195,
-    borderBottom: "none",
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    background:
-      "linear-gradient(165deg, #29ff94, #05ffa3, #00ffb1, #00ffbe, #00ffca, #00ffd5, #00ffdf, #1cffe8)",
-  },
-  phoneBody: {
-    position: "absolute",
-    [theme.breakpoints.down("xs")]: {
-      width: 140,
-      height: 140,
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: 200,
-      height: 200,
-    },
-    transform: "translateY(-30%)",
-    backgroundColor: theme.palette.primary.contrastText,
-    borderBottom: "none",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    padding: 2,
-  },
-  phoneScreen: {
-    [theme.breakpoints.down("xs")]: {
-      height: 137,
-    },
-    [theme.breakpoints.up("sm")]: {
-      height: 197,
-    },
-    borderBottom: "none",
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
 }));
 
 const phones = {
@@ -105,7 +35,7 @@ const phones = {
     name: "Nerve",
     processor: {
       cores: "24 cores (8 performance, 2 low-power, 16 neural)",
-      node: "2nm"
+      node: "2nm",
     },
     display: {
       tech: "HDR10+ VRR smoothLink AMOLED",
@@ -114,13 +44,13 @@ const phones = {
     },
     memory: "24 GiB LPDDR5",
     capacity: "512 GiB / 2 TiB / 4 TiB",
-    battery: "8400 mAh"
+    battery: "8400 mAh",
   },
   IPHONE: {
     name: "iPhone 12 Pro",
     processor: {
-      cores: "6 cores (2 performance, 4 low-power, 16 neural)",
-      node: "5nm"
+      cores: "22 cores (2 performance, 4 low-power, 16 neural)",
+      node: "5nm",
     },
     display: {
       tech: "Super Retina XDR OLED",
@@ -129,13 +59,13 @@ const phones = {
     },
     memory: "6 GiB LPDDR4X-4266",
     capacity: "128 GiB / 256 GiB / 512 GiB",
-    battery: "3678 mAh"
+    battery: "3678 mAh",
   },
   SAMSUNG: {
     name: "Galaxy S21 Ultra 5G",
     processor: {
       cores: "8 cores",
-      node: "5nm"
+      node: "5nm",
     },
     display: {
       tech: "Quad HD+ Dynamic AMOLED 2X",
@@ -144,19 +74,17 @@ const phones = {
     },
     memory: "12 / 16 GiB LPDDR5",
     capacity: "128 GiB / 256 GiB / 512 GiB",
-    battery: "5000 mAh"
+    battery: "5000 mAh",
   },
 };
 
 const Specs = () => {
-  const [color, setColor] = useState(true);
   const classes = useStyles();
   const router = useRouter();
 
   return (
     <Container maxWidth="md">
-      <Navbar title="nerve" page="Performance" className={classes.navbar} />
-
+      <Navbar title="nerve" page="Specs" className={classes.navbar} />
       <Grid
         container
         className={classes.contentList}
@@ -242,7 +170,6 @@ const Specs = () => {
             </Table>
           </TableContainer>
         </Grid>
-
         <Grid item xs={12}>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={6} sm={4} md={3}>
@@ -272,8 +199,8 @@ const Specs = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography>
-                  Copyright © Synapse, 2033. All rights reserved.
+                <Typography style={{fontFamily: "'Fira Code', monospace"}}>
+                  Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>
             </Grid>

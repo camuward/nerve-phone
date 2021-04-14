@@ -114,7 +114,7 @@ const Design = () => {
           noCentering
           primary={
             <Typography variant="h4" component="h2">
-              Looks that could kill.
+              Revolutionary Design.
             </Typography>
           }
           secondary={
@@ -152,10 +152,10 @@ const Design = () => {
           }
           secondary={
             <Typography variant="body1">
-              While designing the device with our perfectly calibrated
-              professional design tools, we realized our device would not reach
-              peak elegance if you couldn't pick your favorite color. So we also
-              made one in black.
+              While designing the device with our precise and very professional
+              phone design tools, we realized our device would not reach peak
+              elegance if you couldn't pick your favorite color. So we also made
+              one in black.
             </Typography>
           }
           theme={color ? DarkTheme : LightTheme}
@@ -217,8 +217,8 @@ const Design = () => {
           <Paper className={classes.paper}>
             <Grid container direction="row" spacing={4}>
               <Grid item>
-                <Typography>
-                  Copyright © Synapse, 2033. All rights reserved.
+                <Typography style={{fontFamily: "'Fira Code', monospace"}}>
+                  Copyright © NERVE, 2021. All rights reserved.
                 </Typography>
               </Grid>
             </Grid>
