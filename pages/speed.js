@@ -93,14 +93,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Design = () => {
+const Speed = () => {
   const [color, setColor] = useState(true);
   const classes = useStyles();
   const router = useRouter();
 
   return (
     <Container maxWidth="md">
-      <Navbar title="nerve" page="Design" className={classes.navbar} />
+      <Navbar title="nerve" page="Performance" className={classes.navbar} />
 
       <Grid
         container
@@ -111,90 +111,55 @@ const Design = () => {
       >
         <Hero
           rtl
-          noCentering
           primary={
             <Typography variant="h4" component="h2">
-              Looks that could kill.
+              As quick as a flash.
             </Typography>
           }
           secondary={
             <Typography variant="body1">
-              With a beautiful minimalistic design, the{" "}
+              In both real-world and synthetic benchmarks, the{" "}
               <span style={{ fontFamily: "'Fira Code', monospace" }}>
                 nerve
               </span>{" "}
-              features a unique look like no other.
+              consistently dominates the competition. With a 24-core processor,
+              12GB RAM, and NVIDIA ray acceleration, this device is bound to
+              provide the best experience there is.
             </Typography>
           }
         >
-          <Box display="flex" justifyContent="center" position="relative">
-            <Paper
-              variant="outlined"
-              className={classes.phoneBody}
-              style={{ background: "#fff" }}
-            >
-              <Paper
-                className={classes.phoneScreen}
-                elevation={0}
-                style={{
-                  background:
-                    "linear-gradient(165deg, #cab800, #dda010, #e7892e, #e87546, #e1645a, #d1596c, #ba5479, #9f5280, #825181, #654f7c, #4b4b70)",
-                }}
-              ></Paper>
-            </Paper>
-          </Box>
+          <Paper>
+
+          </Paper>
         </Hero>
         <Hero
           primary={
             <Typography variant="h4" component="h2">
-              Two distinct colors.
+              Powerful, from silicon to screen.
             </Typography>
           }
           secondary={
             <Typography variant="body1">
-              While designing the device with our perfectly calibrated
-              professional design tools, we realized our device would not reach
-              peak elegance if you couldn't pick your favorite color. So we also
-              made one in black.
+              The{" "}
+              <span style={{ fontFamily: "'Fira Code', monospace" }}>
+                nerve
+              </span>
+              , with its custom RISC-V SoC running on 2nm silicon, is capable of
+              reaching 6 GHz sustained loads, supplied it has the cooling power.
+              Luckily, we planned ahead by including a massive cooling solution
+              with 16 heatpipes easily capable of dissipating the device's 440 W
+              heat output.
             </Typography>
           }
-          theme={color ? DarkTheme : LightTheme}
-        >
-          <ColorButton
-            border="#b7bdc7"
-            onClick={() => setColor(false)}
-            preview="linear-gradient(150deg, #e0e0e0, #d0d1d1, #c1c2c3, #b2b3b4, #a3a4a6, #959698, #86888b, #787a7d, #6a6c70, #5d5f63, #505256, #43454a)"
-          >
-            <Typography
-              variant="button"
-              component="span"
-              style={{ lineHeight: 0 }}
-            >
-              Ceramic White
-            </Typography>
-          </ColorButton>
-          <ColorButton
-            border="#1d1d29"
-            onClick={() => setColor(true)}
-            preview="linear-gradient(165deg, #473c16, #483416, #472d18, #43261b, #3e211d, #371d1f, #2e191f, #26161d, #1d141a, #150f16, #0c090f, #020203)"
-          >
-            <Typography
-              variant="button"
-              component="span"
-              style={{ lineHeight: 0 }}
-            >
-              Dark Sunset
-            </Typography>
-          </ColorButton>
-        </Hero>
+        ></Hero>
 
         <Grid item xs={12}>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={6} sm={4} md={3}>
               <LinkCard
-                title="Speed"
-                backgroundImage="url('/performance-card.jpg')"
-                onClick={() => router.push("/speed")}
+                title="Design"
+                backgroundImage="url('/design-card.jpg')"
+                onClick={() => router.push("/design")}
               />
             </Grid>
             <Grid item xs={6} sm={4} md={3}>
@@ -229,4 +194,4 @@ const Design = () => {
   );
 };
 
-export default Design;
+export default Speed;

@@ -66,7 +66,7 @@ const PageDrawer = forwardRef(
           {[
             ["Overview", <VibrationRoundedIcon />, "/"],
             ["Design", <WallpaperRoundedIcon />, "/design"],
-            ["Performance", <SpeedRoundedIcon />, "/"],
+            ["Performance", <SpeedRoundedIcon />, "/speed"],
             ["Specs", <AssessmentRoundedIcon />, "/"],
             ["Buy Now", <ShoppingCartRoundedIcon />, "/"],
           ].map(([text, icon, link], i) => {
@@ -127,7 +127,7 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
             </Button>
             <Button
               color="secondary"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/speed")}
               size="large"
             >
               Performance

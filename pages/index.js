@@ -119,7 +119,7 @@ const Home = () => {
               <LinkCard
                 title="Speed"
                 backgroundImage="url('/performance-card.jpg')"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/speed")}
               />
             </Grid>
             <Grid item xs={6} sm={4} md={3}>
