@@ -65,7 +65,7 @@ const PageDrawer = forwardRef(
         <List component="nav">
           {[
             ["Overview", <VibrationRoundedIcon />, "/"],
-            ["Design", <WallpaperRoundedIcon />, "/"],
+            ["Design", <WallpaperRoundedIcon />, "/design"],
             ["Performance", <SpeedRoundedIcon />, "/"],
             ["Specs", <AssessmentRoundedIcon />, "/"],
             ["Buy Now", <ShoppingCartRoundedIcon />, "/"],

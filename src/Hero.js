@@ -16,7 +16,12 @@ import NoSsr from "@material-ui/core/NoSsr";
 const useStyles = makeStyles(theme => ({
   hero: {
     padding: theme.spacing(2),
-    minHeight: 200,
+    [theme.breakpoints.down("xs")]: {
+      minHeight: 140,
+    },
+    [theme.breakpoints.up("sm")]: {
+      minHeight: 200,
+    },
   },
   children: {
     gap: theme.spacing(4),
@@ -48,8 +53,9 @@ const Hero = forwardRef(
         <Grid
           container
           direction={rtl ? "row-reverse" : "row"}
-          spacing={4}
+          spacing={2}
           justify="space-evenly"
+          wrap="nowrap"
         >
           <Grid item xs={6} sm={4} md={4}>
             <Grid
@@ -63,7 +69,7 @@ const Hero = forwardRef(
               {children}
             </Grid>
           </Grid>
-          <Grid item xs={5} sm={6} md={5}>
+          <Grid item xs={6} sm={6} md={5}>
             <Grid container direction="column" spacing={4}>
               <Grid item>{primary}</Grid>
               <NoSsr>

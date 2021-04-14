@@ -20,9 +20,6 @@ import styles from "../styles/Overview.module.css";
 import { NoSsr } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  flexGrow: {
-    flexGrow: 1,
-  },
   navbar: {
     marginTop: theme.spacing(2),
     borderRadius: 4,
@@ -30,10 +27,6 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(2),
-  },
-  hero: {
-    padding: theme.spacing(2),
-    height: 200,
   },
   contentList: {
     marginTop: theme.spacing(8),
@@ -44,8 +37,14 @@ const useStyles = makeStyles(theme => ({
   },
   phoneBody: {
     position: "absolute",
-    width: 200,
-    height: 200,
+    [theme.breakpoints.down("xs")]: {
+      width: 140,
+      height: 140,
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: 200,
+      height: 200,
+    },
     transform: "translateY(-30%)",
     backgroundColor: theme.palette.secondary.light,
     borderBottom: "none",
@@ -56,7 +55,12 @@ const useStyles = makeStyles(theme => ({
     padding: 2,
   },
   phoneScreen: {
-    height: 197,
+    [theme.breakpoints.down("xs")]: {
+      height: 137,
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: 197,
+    },
     borderBottom: "none",
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
@@ -96,7 +100,7 @@ const Home = () => {
         >
           <Box display="flex" justifyContent="center" position="relative">
             <Paper variant="outlined" className={classes.phoneBody}>
-              <Paper variant="outlined" className={classes.phoneScreen}></Paper>
+              <Paper variant="outlined" className={classes.phoneScreen} />
             </Paper>
           </Box>
         </Hero>
