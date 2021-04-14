@@ -171,7 +171,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell />
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.name}</TableCell>
+                    <TableCell key={key}>{val.name}</TableCell>
                   ))}
                 </TableRow>
               </TableHead>
@@ -179,7 +179,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Display</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.display.tech}</TableCell>
+                    <TableCell key={key}>{val.display.tech}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -187,7 +187,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Screen size</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.display.size}</TableCell>
+                    <TableCell key={key}>{val.display.size}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -195,7 +195,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Resolution</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.display.resolution}</TableCell>
+                    <TableCell key={key}>{val.display.resolution}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -203,7 +203,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Processor</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.processor.cores}</TableCell>
+                    <TableCell key={key}>{val.processor.cores}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -211,7 +211,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Process Node</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.processor.node}</TableCell>
+                    <TableCell key={key}>{val.processor.node}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -219,7 +219,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Memory</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.memory}</TableCell>
+                    <TableCell key={key}>{val.memory}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -227,7 +227,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Storage</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.capacity}</TableCell>
+                    <TableCell key={key}>{val.capacity}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>
@@ -235,7 +235,7 @@ const Specs = () => {
                 <TableRow>
                   <TableCell>Battery</TableCell>
                   {Object.entries(phones).map(([key, val]) => (
-                    <TableCell>{val.battery}</TableCell>
+                    <TableCell key={key}>{val.battery}</TableCell>
                   ))}
                 </TableRow>
               </TableBody>

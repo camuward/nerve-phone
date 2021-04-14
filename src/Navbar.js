@@ -67,8 +67,8 @@ const PageDrawer = forwardRef(
             ["Overview", <VibrationRoundedIcon />, "/"],
             ["Design", <WallpaperRoundedIcon />, "/design"],
             ["Performance", <SpeedRoundedIcon />, "/speed"],
-            ["Specs", <AssessmentRoundedIcon />, "/"],
-            ["Buy Now", <ShoppingCartRoundedIcon />, "/"],
+            ["Specs", <AssessmentRoundedIcon />, "/specs"],
+            ["Buy Now", <ShoppingCartRoundedIcon />, "/purchase"],
           ].map(([text, icon, link], i) => {
             return (
               <ListItem
@@ -134,7 +134,7 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
             </Button>
             <Button
               color="secondary"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/specs")}
               size="large"
             >
               Specs
@@ -143,7 +143,7 @@ const Navbar = forwardRef(({ title, page, ...props }, ref) => {
           <Button
             variant="outlined"
             color="secondary"
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/purchase")}
             className={classes.buyButton}
           >
             Buy Now
