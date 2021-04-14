@@ -11,6 +11,7 @@ import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Paper from "@material-ui/core/Paper";
+import FlashOnRounded from "@material-ui/icons/FlashOnRounded";
 import NoSsr from "@material-ui/core/NoSsr";
 import withWidth from "@material-ui/core/withWidth";
 
@@ -24,7 +25,7 @@ import { DarkTheme, LightTheme } from "../src/theme";
 const useStyles = makeStyles(theme => ({
   navbar: {
     marginTop: theme.spacing(2),
-    borderRadius: 4,
+    borderRadius: theme.shape.borderRadius,
     background: theme.palette.background.paper,
   },
   paper: {
@@ -107,10 +108,9 @@ const Speed = () => {
         className={classes.contentList}
         alignItems="center"
         justify="center"
-        spacing={2}
+        spacing={3}
       >
         <Hero
-          rtl
           primary={
             <Typography variant="h4" component="h2">
               As quick as a flash.
@@ -128,29 +128,43 @@ const Speed = () => {
             </Typography>
           }
         >
-          <Paper>
-
-          </Paper>
+          <Typography variant="h1" component="span">
+            <FlashOnRounded fontSize="inherit" />
+          </Typography>
         </Hero>
         <Hero
+          rtl
           primary={
-            <Typography variant="h4" component="h2">
-              Powerful, from silicon to screen.
+            <Typography variant="h4" component="h2" className={classes.invert}>
+              <span
+                style={{ color: "white", backgroundColor: "rgba(0,0,0,0.6)", lineHeight: "1.6em", padding: "0.15em 0" }}
+              >
+                Powerful, from silicon to screen.
+              </span>
             </Typography>
           }
           secondary={
-            <Typography variant="body1">
-              The{" "}
-              <span style={{ fontFamily: "'Fira Code', monospace" }}>
-                nerve
+            <Typography variant="body1" className={classes.invert}>
+              <span
+                style={{ color: "white", backgroundColor: "rgba(0,0,0,0.6)", padding: "0.15em 0" }}
+              >
+                The{" "}
+                <span style={{ fontFamily: "'Fira Code', monospace" }}>
+                  nerve
+                </span>
+                , with its custom RISC-V SoC running on a revolutionary new 2nm
+                transistor node, is capable of reaching 6 GHz sustained loads as
+                long as it stays cool. So we took care of that by including a
+                16-heatpipe cooling system easily capable of dissipating the
+                device's 440 W heat output.
               </span>
-              , with its custom RISC-V SoC running on 2nm silicon, is capable of
-              reaching 6 GHz sustained loads, supplied it has the cooling power.
-              Luckily, we planned ahead by including a massive cooling solution
-              with 16 heatpipes easily capable of dissipating the device's 440 W
-              heat output.
             </Typography>
           }
+          pxs={4}
+          sxs={7}
+          background="url('https://cdn.gamer-network.net/2020/usgamer/Horizon-Zero-Dawn-PC-Press-Screenshot-1-08062020.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/65/horizon-zero-dawn-pc-impressions.jpg') no-repeat 80% 70%"
+          backgroundDim
+          backgroundCover
         ></Hero>
 
         <Grid item xs={12}>

@@ -15,6 +15,7 @@ import NoSsr from "@material-ui/core/NoSsr";
 
 const useStyles = makeStyles(theme => ({
   hero: {
+    position: "relative",
     padding: theme.spacing(2),
     [theme.breakpoints.down("xs")]: {
       minHeight: 140,
@@ -22,6 +23,25 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       minHeight: 200,
     },
+    zIndex: -3
+  },
+  background: {
+    borderRadius: theme.shape.borderRadius,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: -2
+  },
+  backgroundDim: {
+    borderRadius: theme.shape.borderRadius,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: -1
   },
   children: {
     gap: theme.spacing(4),
@@ -43,6 +63,12 @@ const Hero = forwardRef(
       rtl,
       noCentering,
       theme,
+      pxs,
+      sxs,
+      background,
+      backgroundDim,
+      backgroundDimAmount,
+      backgroundCover,
       ...props
     },
     ref
@@ -50,6 +76,24 @@ const Hero = forwardRef(
     const classes = useStyles();
     const paper = (
       <Paper className={classes.hero} ref={ref} {...props}>
+        {background && (
+          <span
+            className={classes.background}
+            style={{
+              background: background,
+              backgroundSize: backgroundCover ? "cover" : "initial",
+            }}
+          />
+        )}
+                {backgroundDim && (
+          <span
+            className={classes.backgroundDim}
+            style={{
+              background: "#000",
+              opacity: backgroundDimAmount || 0.4
+            }}
+          />
+        )}
         <Grid
           container
           direction={rtl ? "row-reverse" : "row"}
@@ -57,10 +101,9 @@ const Hero = forwardRef(
           justify="space-evenly"
           wrap="nowrap"
         >
-          <Grid item xs={6} sm={4} md={4}>
+          <Grid item xs={pxs ?? 6} sm={4} md={4}>
             <Grid
               container
-              xs={12}
               direction="column"
               justify="center"
               alignItems="center"
@@ -69,7 +112,7 @@ const Hero = forwardRef(
               {children}
             </Grid>
           </Grid>
-          <Grid item xs={6} sm={6} md={5}>
+          <Grid item xs={sxs ?? 6} sm={6} md={5}>
             <Grid container direction="column" spacing={4}>
               <Grid item>{primary}</Grid>
               <NoSsr>

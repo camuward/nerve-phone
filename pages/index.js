@@ -22,7 +22,7 @@ import { NoSsr } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   navbar: {
     marginTop: theme.spacing(2),
-    borderRadius: 4,
+    borderRadius: theme.shape.borderRadius,
     background: theme.palette.background.paper,
   },
   paper: {
