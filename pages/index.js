@@ -14,6 +14,8 @@ import Paper from "@material-ui/core/Paper";
 import withWidth from "@material-ui/core/withWidth";
 
 import Navbar from "../src/Navbar";
+import Hero from "../src/Hero";
+import LinkCard from "../src/LinkCard";
 import styles from "../styles/Overview.module.css";
 import { NoSsr } from "@material-ui/core";
 
@@ -32,68 +34,6 @@ const useStyles = makeStyles(theme => ({
   hero: {
     padding: theme.spacing(2),
     height: 200,
-  },
-  card: {
-    height: 200,
-    position: "relative",
-    zIndex: 0,
-  },
-  cardButton: {
-    justifyContent: "flex-start",
-    alignItems: "flex-end",
-    padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    width: "100%",
-  },
-  cardImage: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 0,
-    height: 200,
-    backgroundSize: "cover",
-  },
-  cardBackdrop: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    background: "#000",
-    opacity: 0.4,
-    zIndex: 1,
-    transition: "opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardBackdropHide: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    opacity: 0,
-    zIndex: 1,
-    transition: "opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardText: {
-    zIndex: 2,
-    color: "white",
-    background: "transparent",
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardTextHighlight: {
-    zIndex: 2,
-    background: "black",
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
   },
   contentList: {
     marginTop: theme.spacing(8),
@@ -125,51 +65,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LinkCard = forwardRef(
-  ({ title, backgroundImage, backgroundColor, onClick, ...props }, ref) => {
-    const classes = useStyles();
-    const [hover, setHover] = useState(false);
-    return (
-      <Card
-        className={classes.card}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        {...props}
-      >
-        <ButtonBase
-          focusRipple
-          onFocus={() => setHover(true)}
-          onBlur={() => setHover(false)}
-          onClick={onClick}
-          ref={ref}
-          className={classes.cardButton}
-        >
-          <span
-            className={classes.cardImage}
-            {...(backgroundImage
-              ? { style: { backgroundImage: backgroundImage } }
-              : backgroundColor
-              ? { style: { background: backgroundColor } }
-              : {})}
-          />
-          <span
-            className={hover ? classes.cardBackdropHide : classes.cardBackdrop}
-          />
-          <span className={classes.cardText}>
-            <Typography
-              variant="h4"
-              component="span"
-              className={hover ? classes.cardTextHighlight : classes.cardText}
-            >
-              {title}
-            </Typography>
-          </span>
-        </ButtonBase>
-      </Card>
-    );
-  }
-);
-
 const Home = () => {
   const classes = useStyles();
   const router = useRouter();
@@ -184,55 +79,28 @@ const Home = () => {
         justify="center"
         spacing={2}
       >
-        <Grid item xs={12}>
-          <Paper className={classes.hero}>
-            <Grid container direction="row" spacing={4} justify="space-evenly">
-              <Grid item xs={6} sm={4} md={4}>
-                <Box display="flex" justifyContent="center" position="relative">
-                  <Paper variant="outlined" className={classes.phoneBody}>
-                    <Paper variant="outlined" className={classes.phoneScreen} />
-                  </Paper>
-                </Box>
-              </Grid>
-              <Grid item xs={5} sm={6} md={5}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <Typography variant="h4" component="h2">
-                      <span className={styles.emphasisTextFirst}>
-                        {"Elegance."}
-                      </span>{" "}
-                      <span className={styles.emphasisTextSecond}>
-                        {"Redefined."}
-                      </span>
-                    </Typography>
-                  </Grid>
-                  <NoSsr>
-                    <Hidden xsDown>
-                      <Grid item>
-                        <Typography variant="body1">
-                          Built from the ground up with a mod&shy;ern,
-                          min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
-                        </Typography>
-                      </Grid>
-                    </Hidden>
-                  </NoSsr>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
-        <NoSsr>
-          <Hidden smUp>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Typography variant="h5" component="span">
-                  Built from the ground up with a mod&shy;ern,
-                  min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
-                </Typography>
-              </Paper>
-            </Grid>
-          </Hidden>
-        </NoSsr>
+        <Hero
+          noCentering
+          primary={
+            <Typography variant="h4" component="h2">
+              <span className={styles.emphasisTextFirst}>Elegance.</span>{" "}
+              <span className={styles.emphasisTextSecond}>Redefined.</span>
+            </Typography>
+          }
+          secondary={
+            <Typography variant="body1">
+              Built from the ground up with a mod&shy;ern,
+              min&shy;im&shy;al&shy;is&shy;tic sty&shy;le.
+            </Typography>
+          }
+        >
+          <Box display="flex" justifyContent="center" position="relative">
+            <Paper variant="outlined" className={classes.phoneBody}>
+              <Paper variant="outlined" className={classes.phoneScreen}></Paper>
+            </Paper>
+          </Box>
+        </Hero>
+
         <Grid item xs={12}>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={6} sm={4} md={3}>

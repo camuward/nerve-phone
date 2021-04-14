@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-import { makeStyles, StylesProvider } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -15,12 +15,13 @@ import NoSsr from "@material-ui/core/NoSsr";
 import withWidth from "@material-ui/core/withWidth";
 
 import Navbar from "../src/Navbar";
-import styles from "../styles/Overview.module.css";
+import LinkCard from "../src/LinkCard";
+import Hero from "../src/Hero";
+import ColorButton from "../src/ColorButton";
+
+import { DarkTheme, LightTheme } from "../src/theme";
 
 const useStyles = makeStyles(theme => ({
-  flexGrow: {
-    flexGrow: 1,
-  },
   navbar: {
     marginTop: theme.spacing(2),
     borderRadius: 4,
@@ -29,74 +30,9 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
   },
-  hero: {
-    padding: theme.spacing(2),
-    height: 200,
-  },
-  card: {},
-  cardButton: {
-    justifyContent: "flex-start",
-    alignItems: "flex-end",
-    padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    width: "100%",
-  },
-  cardImage: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 0,
-    height: 197,
-    backgroundSize: "cover",
-  },
-  cardBackdrop: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    background: "#000",
-    opacity: 0.4,
-    zIndex: 1,
-    transition: "opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardBackdropHide: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    opacity: 0,
-    zIndex: 1,
-    transition: "opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardText: {
-    zIndex: 2,
-    color: "white",
-    background: "transparent",
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
-  cardTextHighlight: {
-    zIndex: 2,
-    background: "black",
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    transition: "background 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
   contentList: {
     marginTop: theme.spacing(8),
     flexGrow: 1,
-  },
-  xsEmphasisText: {
-    textAlign: "right",
   },
   phoneBody: {
     position: "absolute",
@@ -123,15 +59,38 @@ const useStyles = makeStyles(theme => ({
     background:
       "linear-gradient(165deg, #29ff94, #05ffa3, #00ffb1, #00ffbe, #00ffca, #00ffd5, #00ffdf, #1cffe8)",
   },
+  phoneBody: {
+    position: "absolute",
+    width: 200,
+    height: 200,
+    transform: "translateY(-30%)",
+    backgroundColor: theme.palette.primary.contrastText,
+    borderBottom: "none",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    padding: 2,
+  },
+  phoneScreen: {
+    height: 197,
+    borderBottom: "none",
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
 }));
 
-const Home = () => {
+const Design = () => {
+  const [color, setColor] = useState(true);
   const classes = useStyles();
   const router = useRouter();
 
   return (
     <Container maxWidth="md">
       <Navbar title="nerve" page="Overview" className={classes.navbar} />
+
       <Grid
         container
         className={classes.contentList}
@@ -139,35 +98,117 @@ const Home = () => {
         justify="center"
         spacing={2}
       >
+        <Hero
+          rtl
+          noCentering
+          primary={
+            <Typography variant="h4" component="h2">
+              Looks that could kill.
+            </Typography>
+          }
+          secondary={
+            <Typography variant="body1">
+              With a beautiful minimalistic design, the{" "}
+              <span style={{ fontFamily: "'Fira Code', monospace" }}>
+                nerve
+              </span>{" "}
+              features a unique look like no other.
+            </Typography>
+          }
+        >
+          <Box display="flex" justifyContent="center" position="relative">
+            <Paper
+              variant="outlined"
+              className={classes.phoneBody}
+              style={{ background: "#fff" }}
+            >
+              <Paper
+                className={classes.phoneScreen}
+                elevation={0}
+                style={{
+                  background:
+                    "linear-gradient(165deg, #cab800, #dda010, #e7892e, #e87546, #e1645a, #d1596c, #ba5479, #9f5280, #825181, #654f7c, #4b4b70)",
+                }}
+              ></Paper>
+            </Paper>
+          </Box>
+        </Hero>
+        <Hero
+          primary={
+            <Typography variant="h4" component="h2">
+              Two distinct colors.
+            </Typography>
+          }
+          secondary={
+            <Typography variant="body1">
+              While designing the device with our perfectly calibrated
+              professional design tools, we realized our device would not reach
+              peak elegance if you couldn't pick your favorite color. So we also
+              made one in black.
+            </Typography>
+          }
+          theme={color ? DarkTheme : LightTheme}
+        >
+          <ColorButton
+            border="#b7bdc7"
+            onClick={() => setColor(false)}
+            preview="linear-gradient(150deg, #e0e0e0, #d0d1d1, #c1c2c3, #b2b3b4, #a3a4a6, #959698, #86888b, #787a7d, #6a6c70, #5d5f63, #505256, #43454a)"
+          >
+            <Typography
+              variant="button"
+              component="span"
+              style={{ lineHeight: 0 }}
+            >
+              Ceramic White
+            </Typography>
+          </ColorButton>
+          <ColorButton
+            border="#1d1d29"
+            onClick={() => setColor(true)}
+            preview="linear-gradient(165deg, #473c16, #483416, #472d18, #43261b, #3e211d, #371d1f, #2e191f, #26161d, #1d141a, #150f16, #0c090f, #020203)"
+          >
+            <Typography
+              variant="button"
+              component="span"
+              style={{ lineHeight: 0 }}
+            >
+              Dark Sunset
+            </Typography>
+          </ColorButton>
+        </Hero>
+
         <Grid item xs={12}>
-          <Paper className={classes.hero}>
-            <Grid container direction="row" spacing={4} justify="space-evenly">
-              <Grid item xs={5} sm={6} md={5}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <Typography variant="h4" component="h2">
-                      {typeof window === "undefined" ? "server" : "client"}
-                    </Typography>
-                  </Grid>
-                  <NoSsr>
-                    <Hidden xsDown>
-                      <Grid item>
-                        <Typography variant="body1">
-                          In&shy;spi&shy;red by the beaut&shy;iful mount&shy;ains of
-                        </Typography>
-                      </Grid>
-                    </Hidden>
-                  </NoSsr>
-                </Grid>
-              </Grid>
-              <Grid item xs={6} sm={4} md={4}>
-                <Box display="flex" justifyContent="center" position="relative">
-                  <Paper variant="outlined" className={classes.phoneBody}>
-                    <Paper variant="outlined" className={classes.phoneScreen}>
-                      <span className={classes.cardImage} style={{}} />
-                    </Paper>
-                  </Paper>
-                </Box>
+          <Grid container direction="row" spacing={2}>
+            <Grid item xs={6} sm={4} md={3}>
+              <LinkCard
+                title="Speed"
+                backgroundImage="url('/performance-card.jpg')"
+                onClick={() => router.push("/")}
+              />
+            </Grid>
+            <Grid item xs={6} sm={4} md={3}>
+              <LinkCard
+                title="Specs"
+                backgroundImage="url('/specs-card.jpg')"
+                onClick={() => router.push("/")}
+              />
+            </Grid>
+            <Grid item xs={6} sm={4} md={3}>
+              <LinkCard
+                title="Buy"
+                backgroundColor="linear-gradient(165deg, #29ff94, #05ffa3, #00ffb1, #00ffbe, #00ffca, #00ffd5, #00ffdf, #1cffe8)"
+                onClick={() => router.push("/")}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Grid container direction="row" spacing={4}>
+              <Grid item>
+                <Typography>
+                  Copyright © Synapse, 2033. All rights reserved.
+                </Typography>
               </Grid>
             </Grid>
           </Paper>
@@ -177,4 +218,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Design;
